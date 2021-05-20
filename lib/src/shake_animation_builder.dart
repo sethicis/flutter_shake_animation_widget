@@ -19,8 +19,8 @@ class ShakeAnimationBuilder extends StatelessWidget {
   ///[child] 执行动画的组件
   ///[animation] 执行的动画
   ShakeAnimationBuilder(
-      {@required this.child,
-      @required this.animation,
+      {required this.child,
+      required this.animation,
       this.randomValue = 5,
       this.shakeAnimationType = ShakeAnimationType.RoateShake});
 
@@ -45,7 +45,7 @@ class ShakeAnimationBuilder extends StatelessWidget {
     ///通过 AnimatedBuilder 组合动画
     return AnimatedBuilder(
       animation: animation,
-      builder: (BuildContext context, Widget child) {
+      builder: (BuildContext context, Widget? child) {
         return new Transform(
 
             ///构建Matrix4
