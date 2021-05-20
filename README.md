@@ -51,7 +51,7 @@ Flutter抖动动画组件，FLutter颤动动画
           iconList: iconList,
           //对应菜单项点击事件回调
           clickCallBack: (int index) {
-            print("点击了 $index");
+            //print("点击了 $index");
           },
         )
 ```
@@ -83,7 +83,7 @@ Flutter抖动动画组件，FLutter颤动动画
       textNormalCcolor: Colors.deepOrange,
       //点击回调
       clickCallback: () async {
-        print("点击事件回调");
+        //print("点击事件回调");
         //模拟耗时操作
         await Future.delayed(Duration(milliseconds: 4000));
 
@@ -107,7 +107,7 @@ Flutter抖动动画组件，FLutter颤动动画
           iconList: iconList,
           //对应菜单项点击事件回调
           clickCallBack: (int index) {
-            print("点击了 $index");
+            //print("点击了 $index");
           },
         )
 ```

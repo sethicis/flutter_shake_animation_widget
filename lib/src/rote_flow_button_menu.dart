@@ -72,17 +72,17 @@ class _MenuState extends State<RoteFlowButtonMenu>
             setState(() {
               ///从0到1
               _rad = animation.value ?? 0.0;
-              print("$_rad ");
+              //print("$_rad ");
             });
           })
 
           ///设置状态监听
           ..addStatusListener((status) {
             if (status == AnimationStatus.completed) {
-              print("正向执行完毕 ");
+              //print("正向执行完毕 ");
               _closed = !_closed;
             } else if (status == AnimationStatus.dismissed) {
-              print("反向执行完毕 ");
+              //print("反向执行完毕 ");
               _closed = !_closed;
             }
           });

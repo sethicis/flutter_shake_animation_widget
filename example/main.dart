@@ -67,7 +67,7 @@ class _TestPageState extends State<TestPage> {
       iconList: iconList,
       ///子菜单按钮的点击事件回调
       clickCallback: (int index) {
-        print("点击了按钮$index");
+        //print("点击了按钮$index");
       },
     );
   }
@@ -137,7 +137,7 @@ class _TestPageState extends State<TestPage> {
         height: 40,
         buttonText: '动画样式按钮',
         clickCallback: (){
-          print("点击事件回调");
+          //print("点击事件回调");
         },
       );
   }
@@ -167,7 +167,7 @@ class _TestPageState extends State<TestPage> {
       textNormalCcolor: Colors.deepOrange,
       //点击回调
       clickCallback: () async {
-        print("点击事件回调");
+        //print("点击事件回调");
         //模拟耗时操作
         await Future.delayed(Duration(milliseconds: 4000));
 
@@ -226,7 +226,7 @@ class _ExampleState extends State<Example309> {
           iconList: iconList,
           //对应菜单项点击事件回调
           clickCallBack: (int index) {
-            print("点击了 $index");
+            //print("点击了 $index");
           },
         ),
       ),
@@ -280,7 +280,7 @@ class _ExampleState extends State<Example310> {
           iconList: iconList,
           //对应菜单项点击事件回调
           clickCallBack: (int index) {
-            print("点击了 $index");
+            //print("点击了 $index");
           },
         ),
       ),

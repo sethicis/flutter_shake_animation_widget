@@ -72,7 +72,7 @@ class _MenuState extends State<BottomRoundFlowMenu>
           ///从0到1
           _rad = animation?.value ?? 0.0;
           if (widget.isLog) {
-            print("$_rad ");
+            //print("$_rad ");
           }
         });
       })
@@ -81,12 +81,12 @@ class _MenuState extends State<BottomRoundFlowMenu>
       ..addStatusListener((status) {
         if (status == AnimationStatus.completed) {
           if (widget.isLog) {
-            print("正向执行完毕 ");
+            //print("正向执行完毕 ");
           }
           _closed = !_closed;
         } else if (status == AnimationStatus.dismissed) {
           if (widget.isLog) {
-            print("反向执行完毕 ");
+            //print("反向执行完毕 ");
           }
           _closed = !_closed;
         }
