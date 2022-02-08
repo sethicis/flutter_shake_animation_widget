@@ -4,36 +4,33 @@ import 'package:shake_animation_widget/src/shake_animation_builder.dart';
 import 'package:shake_animation_widget/src/shake_animation_controller.dart';
 import 'package:shake_animation_widget/src/shake_animation_type.dart';
 
-/// 创建人： Created by zhaolong
-/// 创建时间：Created by  on 2020/7/17.
-///
-/// 可关注公众号：我的大前端生涯   获取最新技术分享
-/// 可关注网易云课堂：https://study.163.com/instructor/1021406098.htm
-/// 可关注博客：https://blog.csdn.net/zl18603543572
+/// Created by: Created by zhaolong
+/// Creation time: Created by on 2020/7/17.
 ///
 /// lib/demo/shake/shake_animation_widget.dart
-/// 抖动效果的组件
+/// Component of the jitter effect
 class ShakeAnimationWidget extends StatefulWidget {
-  ///[child] 执行动画的组件
+  /// Child widget
   final Widget child;
 
-  ///抖动的范围配置
+  /// How violent the shake should be.
   final double shakeRange;
 
-  ///抖动的类型
+  /// Type of shake animation
   final ShakeAnimationType shakeAnimationType;
 
-  ///抖动次数 0 为无限抖动
+  /// Number of times to repeat animation
   final shakeCount;
 
-  ///随机动画时抖动的波动范围
+  /// Randomization value to apply to the shake animation
   final double randomValue;
 
-  ///抖动动画控制器
   final ShakeAnimationController? shakeAnimationController;
 
-  ///是否自动执行抖动
+  /// Whether or not to start shake immediately
   final bool isForward;
+  
+  final int speed;
 
   ShakeAnimationWidget(
       {required this.child,
@@ -42,7 +39,8 @@ class ShakeAnimationWidget extends StatefulWidget {
       this.shakeAnimationType = ShakeAnimationType.RoateShake,
       this.shakeAnimationController,
       this.isForward = true,
-      this.randomValue = 4});
+      this.randomValue = 4,
+      this.speed = 200});
 
   @override
   State<StatefulWidget> createState() {
@@ -52,19 +50,15 @@ class ShakeAnimationWidget extends StatefulWidget {
 
 class _ShakeAnimationState extends State<ShakeAnimationWidget>
     with SingleTickerProviderStateMixin {
-  ///动画控制器
+
   late AnimationController _animationController;
 
-  ///旋转弧度动画
   late Animation<double> _angleAnimation;
 
-  ///抖动执行次数
   int _shakeTotalCount = 0;
 
-  ///当前抖动执行次数
   int _shakeCurrentCount = 0;
 
-  ///抖动的范围配置
   late double _shakeRange;
 
   /// lib/demo/shake/shake_animation_widget.dart
@@ -72,10 +66,8 @@ class _ShakeAnimationState extends State<ShakeAnimationWidget>
   void initState() {
     super.initState();
 
-    ///抖动的执行次数
     _shakeTotalCount = widget.shakeCount;
 
-    ///抖动的范围
     _shakeRange = widget.shakeRange;
     if (_shakeRange <= 0) {
       _shakeRange = 0;
@@ -83,9 +75,8 @@ class _ShakeAnimationState extends State<ShakeAnimationWidget>
       _shakeRange = 1.0;
     }
 
-    ///1、创建动画控制器
     _animationController = AnimationController(
-        duration: const Duration(milliseconds: 200), vsync: this);
+        duration: const Duration(milliseconds: widget.speed), vsync: this);
 
     ///2、创建串行动画
     _angleAnimation = TweenSequence<double>([
