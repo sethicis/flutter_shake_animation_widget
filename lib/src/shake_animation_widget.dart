@@ -76,7 +76,7 @@ class _ShakeAnimationState extends State<ShakeAnimationWidget>
     }
 
     _animationController = AnimationController(
-        duration: const Duration(milliseconds: widget.speed), vsync: this);
+        duration: Duration(milliseconds: widget.speed), vsync: this);
 
     ///2、创建串行动画
     _angleAnimation = TweenSequence<double>([
