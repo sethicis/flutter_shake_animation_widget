@@ -1,113 +1,113 @@
 # flutter_shake_animation_widget
-Flutter抖动动画组件，FLutter颤动动画
+Flutter Shake Animation Component
 
 
-#### 抖动效果
+#### Jitter effect
 
-```
-  ///构建抖动效果
+````
+  /// Build the jitter effect
   ShakeAnimationWidget buildShakeAnimationWidget() {
     return ShakeAnimationWidget(
-      //抖动控制器
+      //jitter controller
       shakeAnimationController: _shakeAnimationController,
-      //微旋转的抖动
+      // micro-rotation jitter
       shakeAnimationType: ShakeAnimationType.SkewShake,
-      //设置不开启抖动
+      //Set to not turn on jitter
       isForward: false,
-      //默认为 0 无限执行
+      //The default is 0 for infinite execution
       shakeCount: 0,
-      //抖动的幅度 取值范围为[0,1]
+      //The amplitude of the jitter ranges from [0,1]
       shakeRange: 0.2,
-      //执行抖动动画的子Widget
+      //The child Widget that performs the shaking animation
       child: RaisedButton(
         child: Text(
-          '测试',
+          'test',
           style: TextStyle(color: Colors.white),
         ),
         onPressed: () {
-          ///判断抖动动画是否正在执行
+          ///Determine whether the shaking animation is executing
           if (_shakeAnimationController.animationRunging) {
-            ///停止抖动动画
+            ///Stop the jitter animation
             _shakeAnimationController.stop();
           } else {
-            ///开启抖动动画
-            ///参数shakeCount 用来配置抖动次数
-            ///通过 controller start 方法默认为 1
+            ///Enable the shaking animation
+            ///The parameter shakeCount is used to configure the number of shakes
+            ///The default is 1 by the controller start method
             _shakeAnimationController.start(shakeCount: 1);
           }
         },
       ),
     );
   }
-```
+````
 
-####  防开源中国自定义底部菜单
+#### Custom bottom menu
 
-```
+````
       BottomRoundFlowMenu(
-          //图标使用的背景
+          //The background used by the icon
           defaultBackgroundColor: Colors.white,
-          //菜单所有的图标
+          //All icons of the menu
           iconList: iconList,
-          //对应菜单项点击事件回调
+          //Corresponding to the menu item click event callback
           clickCallBack: (int index) {
-            //print("点击了 $index");
+            //print("Clicked on $index");
           },
         )
-```
+````
 
-#### 动画按钮
+#### Animated buttons
 
-```
-  //动画按钮使用到的控制器
+````
+  //The controller used by the animation button
   AnimatedStatusController animatedStatusController =
   new AnimatedStatusController();
 
-  //切换样式的动画按钮
+  // toggle style animation button
   Widget buildAnimatedStatusButton() {
     return AnimatedStatusButton(
-      //控制器
+      //controller
       animatedStatusController: animatedStatusController,
-      //显示按钮的宽度
+      //display the width of the button
       width: 220.0,
-      //显示按钮的高度
+      //display the height of the button
       height: 40,
-      //动画交互时间
+      // animation interaction time
       milliseconds: 1000,
-      buttonText: '提交',
-      //背景颜色
+      buttonText: 'Submit',
+      //background color
       backgroundNormalColor: Colors.white,
-      //边框颜色
+      // border color
       borderNormalColor: Colors.deepOrange,
-      //文字颜色
+      //text color
       textNormalCcolor: Colors.deepOrange,
-      //点击回调
+      //click callback
       clickCallback: () async {
-        //print("点击事件回调");
-        //模拟耗时操作
+        //print("Click event callback");
+        //Simulate time-consuming operation
         await Future.delayed(Duration(milliseconds: 4000));
 
-        //返回false 会一直在转圈圈
-        //返回true 会回到默认显示样式
+        //Returning false will keep going in circles
+        //Returning true will return to the default display style
         return Future.value(false);
       },
     );
   }
 
-```
+````
 
 
-#### 垂直向上弹出菜单
+#### Vertical popup menu
 
-```
+````
     RoteFlowButtonMenu(
-          //图标使用的背景
+          //The background used by the icon
           defaultBackgroundColor: Colors.deepOrangeAccent,
-          //菜单所有的图标
+          //All icons of the menu
           iconList: iconList,
-          //对应菜单项点击事件回调
+          //Corresponding to the menu item click event callback
           clickCallBack: (int index) {
-            //print("点击了 $index");
+            //print("Clicked on $index");
           },
         )
-```
+````
